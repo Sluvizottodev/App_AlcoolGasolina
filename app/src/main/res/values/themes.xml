@@ -3,6 +3,9 @@
     <style name="Base.Theme.App_AlcoolGasolina" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/Primaria</item>
+
+
     </style>
 
     <style name="Theme.App_AlcoolGasolina" parent="Base.Theme.App_AlcoolGasolina" />
