@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnCalcular: Button
     private lateinit var textResultado: TextView
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,9 +25,17 @@ class MainActivity : AppCompatActivity() {
         inicializarComponentesInterface()
         btnCalcular.setOnClickListener{
             calcularMelhorPreço()
-
         }
+    }
+    private fun inicializarComponentesInterface() {
+        textInputAlcool = findViewById(R.id.textInputAlcool)
+        editAlcool = textInputAlcool.findViewById(R.id.textInput_Alcool)
 
+        textInputGasolina = findViewById(R.id.textInputGasolina)
+        editGasolina = textInputGasolina.findViewById(R.id.textInput_Gasolina)
+
+        btnCalcular = findViewById(R.id.btnCalcular)
+        textResultado = findViewById(R.id.ResultadoView)
     }
 
     private fun calcularMelhorPreço(){
@@ -56,27 +63,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun validarCampos (pAlcool: String,pGasolina: String): Boolean{
+    private fun validarCampos (pAlcool: String, pGasolina: String): Boolean{
 
         textInputAlcool.error = null
         textInputGasolina.error = null
 
-        if( pAlcool.isNotEmpty()){
-            textInputAlcool.error = "digite o preço do Alcool"
+        if( pAlcool.isEmpty()){
+            textInputAlcool.error = "Digite o preço do Álcool"
             return false
-        }else if( pGasolina.isEmpty() ){
+        } else if( pGasolina.isEmpty() ){
             textInputGasolina.error = "Digite o preço da Gasolina"
             return false
         }
-            return true
+        return true
     }
 
-    private fun inicializarComponentesInterface() {
-        textInputAlcool = findViewById(R.id.textInput_Alcool)
-        //editAlcoolAlcool = findViewById(R.id.e)
 
-        textInputGasolina = findViewById(R.id.textInput_Gasolina)
-
-        btnCalcular = findViewById(R.id.btnCalcular)
-    }
 }
